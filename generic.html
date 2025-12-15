@@ -1,219 +1,945 @@
-<!DOCTYPE HTML>
-<!--
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>About Me & Curriculum Vitae - Nohayla EL HAIMED</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nohayla EL HAIMED - Embedded Systems Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #00D9FF;
+            --color-secondary: #FF3366;
+            --color-accent: #FFD700;
+            --color-dark: #0A0E27;
+            --color-darker: #050814;
+            --color-light: #F8F9FA;
+            --color-gray: #8892B0;
+            --color-grid: rgba(0, 217, 255, 0.05);
+        }
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--color-darker);
+            color: var(--color-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-							<!-- Header -->
-								<header id="header">
-									<a href="index.html" class="logo"><strong>Portfolio</strong> | Nohayla EL HAIMED</a>
-									<ul class="icons">
-										<li><a href="https://www.linkedin.com/in/nohayla-engineer/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-										<li><a href="https://github.com/nohayla-elh?tab=repositories" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-										<li><a href="mailto:nohayla.el-haimed@etu.unistra.fr" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-									</ul>
-								</header>
+        /* Animated grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, var(--color-grid) 1px, transparent 1px),
+                linear-gradient(0deg, var(--color-grid) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
 
-							<!-- Content -->
-								<section>
-									<header class="main">
-										<h1>About Me & Curriculum Vitae</h1>
-									</header>
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
 
-									<!-- Photo -->
-									<span class="image main"><img src="images/votre-photo-pro.jpg" alt="Nohayla EL HAIMED" /></span>
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
 
-									<!-- Profil / Introduction -->
-									<p>
-										Final-year engineering student in Electronics and Digital Systems at Télécom Physique Strasbourg (graduating 2026). Currently an apprentice engineer at Cordon CMS in the Test & Validation team.
-									</p>
-									<p>
-										Passionate about embedded systems, electronic testing, robotics, and artificial intelligence. Hands-on experience in test bench development, automation (LabVIEW, TestStand, C#), hardware validation, CAN bus, FPGA, and real-time systems.
-									</p>
-									<p>
-										Seeking a junior engineer position starting in 2026 in embedded systems, embedded software, or electronic test & validation. Open to opportunities in France, Germany, and internationally (e.g., Mercedes, BMW, Bosch).
-									</p>
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+            opacity: 0.1;
+            filter: blur(100px);
+            pointer-events: none;
+            animation: pulse 8s ease-in-out infinite;
+        }
 
-									<!-- Bouton Download CV -->
-									<ul class="actions">
-										<li><a href="assets/cv/Nohayla_ElHaimed_CV.pdf" class="button primary large" download>Download CV as PDF</a></li>
-									</ul>
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.15; }
+        }
 
-									<hr class="major" />
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            width: 100%;
+        }
 
-									<h2>Professional Experience</h2>
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--color-primary);
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            animation: slideDown 0.6s ease-out;
+        }
 
-									<h3>Apprentice Engineer – Test & Validation</h3>
-									<p><strong>Cordon CMS, Ribeauvillé, France</strong> | 2023 – Present</p>
-									<ul>
-										<li>Development and automation of electronic test benches for industrial, smart home, and medical applications.</li>
-										<li>Design and validation of printed circuit boards (PCBs) using KiCad and LTSpice.</li>
-										<li>Programming in C#, C++, Python; test sequencing with LabVIEW and NI TestStand.</li>
-										<li>CAN bus integration, hardware debugging, and measurement instrument use (Picoscope, etc.).</li>
-										<li>Development of industrial HMIs (C# WPF) and generic multi-client test infrastructures.</li>
-									</ul>
-										<h3>Engineering Internship – Autonomous Drone Development</h3>
-									<p><strong>VTEC Lasers & Sensors, Netherlands</strong> | Summer 2025</p>
-									<ul>
-										<li>Software development for autonomous drone systems.</li>
-										<li>Integration of cameras, LiDAR, and ultrasonic sensors.</li>
-										<li>Implementation of computer vision using YOLOv8 and ROS.</li>
-										<li>Sensor data analysis and system validation.</li>
-									</ul>
-										<h3>Private Tutor – Mathematics, Physics, and Engineering Sciences </h3>
-									<p><strong>Independent Activity, France</strong> | 09/2022 – 12/2024</p>
-									<ul>
-										<li>Provided personalized tutoring to high school students and preparatory class students.</li>
-										<li>Prepared students for exams, tests, and competitive entrance examinations.</li>
-										<li>Implementation of computer vision using YOLOv8 and ROS.</li>
-										<li>Developed strong skills in pedagogy, communication, and organization.</li>
-									</ul>
-									<h3>Communication Assistant (Volunteer)</h3>
-									<p><strong>Afev, Strasbourg, France</strong> | 2022 – 2023</p>
-									<ul>
-										<li>Supported educational and cultural initiatives to promote diversity.</li>
-										<li>Guided young individuals to build confidence and learning enthusiasm.</li>
-									</ul>
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-									<hr class="major" />
+        .hero-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 0.9;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--color-light) 0%, var(--color-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
 
-									<h2>Education</h2>
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-									<ul>
-										<li><strong>Engineering Degree in Electronics and Digital Systems (Apprenticeship Track)</strong><br>
-										Télécom Physique Strasbourg, University of Strasbourg<br>
-										2023 – 2026 (expected graduation)</li>
-										<br>
-										<li><strong>First Year of General Engineering Degree</strong><br>
-										Télécom Physique Strasbourg<br>
-										2022 – 2023</li>
-										<br>
-										<li><strong>Preparatory Class for Engineering Schools (TSI)</strong><br>
-										Lycée Technique, Settat, Morocco<br>
-										2020 – 2022</li>
-										<br>
-										<li><strong>Baccalaureate in Mechanical Science and Technology (With Highest Honors)</strong><br>
-										Imam Elghazali High School, Morocco<br>
-										2019 – 2020</li>
-									</ul>
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+            font-weight: 500;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
 
-									<hr class="major" />
+        .hero-highlight {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
 
-									<h2>Technical Skills</h2>
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
 
-									<ul>
-										<li><strong>Programming & Software:</strong> C#, C++, Python, Java, MATLAB/Simulink, Git, Visual Studio</li>
-										<li><strong>Test & Automation:</strong> LabVIEW, NI TestStand, SolidWorks</li>
-										<li><strong>Electronics Design:</strong> KiCad, LTSpice</li>
-										<li><strong>Embedded & Protocols:</strong> CAN bus, FPGA (Quartus, VHDL), Microcontrollers, ROS 2, FreeRTOS</li>
-										<li><strong>AI & Vision:</strong> TensorFlow Lite, YOLOv8, OpenCV</li>
-										<li><strong>Other:</strong> SQL/NoSQL databases, technical documentation, system integration</li>
-									</ul>
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            animation: slideUp 0.8s ease-out 0.8s both;
+        }
 
-									<hr class="major" />
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
 
-									<h2>Languages</h2>
+        .btn-primary {
+            background: var(--color-primary);
+            color: var(--color-dark);
+        }
 
-									<ul>
-										<li>French: Native</li>
-										<li>Arabic: Native</li>
-										<li>English: Fluent(TOEIC 905)</li>
-										<li>German: Beginner (in progress)</li>
-									</ul>
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+        }
 
-									<hr class="major" />
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-light);
+            border: 2px solid var(--color-light);
+        }
 
-									<h2>Soft Skills</h2>
+        .btn-secondary:hover {
+            background: var(--color-light);
+            color: var(--color-dark);
+            transform: translateY(-2px);
+        }
 
-									<ul>
-										<li>Team collaboration and agile work</li>
-										<li>Problem-solving and analytical thinking</li>
-										<li>Effective communication (technical and intercultural)</li>
-										<li>Time management and autonomy</li>
-									</ul>
+        /* Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
 
-									<hr class="major" />
+        /* Section Styling */
+        .section {
+            margin-bottom: 6rem;
+            animation: fadeIn 0.8s ease-out;
+        }
 
-									<h2>Interests</h2>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-									<ul>
-										<li>Basketball</li>
-										<li>Shooting sports</li>
-										<li>Travel and cultural discovery</li>
-										<li>Robotics and embedded projects</li>
-									</ul>
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid rgba(0, 217, 255, 0.2);
+        }
 
-									<p>Thank you for visiting my portfolio. I am excited about opportunities in innovative automotive and embedded systems companies. Feel free to contact me via LinkedIn or email for discussions or interviews.</p>
+        .section-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            color: var(--color-primary);
+            opacity: 0.3;
+            line-height: 1;
+        }
 
-								</section>
+        .section-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2.5rem;
+            color: var(--color-light);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
 
-						</div>
-					</div>
+        /* Experience Cards */
+        .experience-grid {
+            display: grid;
+            gap: 2rem;
+        }
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
+        .experience-card {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.9) 0%, rgba(5, 8, 20, 0.9) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">About & CV</a></li>
-									</ul>
-								</nav>
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--color-primary), var(--color-secondary));
+            transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-							<!-- Contact -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="mailto:nohayla.el-haimed@etu.unistra.fr">nohayla.el-haimed@etu.unistra.fr</a></li>
-										<li class="icon solid fa-phone">+33 6 07 23 65 36</li>
-										<li class="icon solid fa-home">Strasbourg, France<br />(open to relocation)</li>
-										<li class="icon brands fa-linkedin-in"><a href="https://www.linkedin.com/in/nohayla-el-haimed-279787203">LinkedIn Profile</a></li>
-										<li class="icon brands fa-github"><a href="https://github.com/votre-pseudo-github">GitHub</a></li>
-									</ul>
-								</section>
+        .experience-card:hover::before {
+            height: 100%;
+        }
 
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Nohayla EL HAIMED. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
+        .experience-card:hover {
+            transform: translateX(10px);
+            border-color: var(--color-primary);
+            box-shadow: 0 20px 60px rgba(0, 217, 255, 0.2);
+        }
 
-						</div>
-					</div>
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
 
-			</div>
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-light);
+            margin-bottom: 0.5rem;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
 
-	</body>
+        .experience-period {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--color-gray);
+            padding: 0.5rem 1rem;
+            background: rgba(0, 217, 255, 0.05);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+        .experience-description {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-description li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            color: var(--color-gray);
+            line-height: 1.7;
+        }
+
+        .experience-description li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.6) 0%, rgba(5, 8, 20, 0.6) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.15);
+        }
+
+        .skill-category-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category-title::before {
+            content: '●';
+            font-size: 1.5rem;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 217, 255, 0.05);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--color-light);
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--color-primary);
+            color: var(--color-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Education Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-primary), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            box-shadow: 0 0 0 4px rgba(0, 217, 255, 0.2);
+        }
+
+        .timeline-degree {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-school {
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-period {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--color-gray);
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 51, 102, 0.1) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.3);
+        }
+
+        .stat-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3rem;
+            color: var(--color-primary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--color-gray);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* Languages & Interests */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(10, 14, 39, 0.6) 0%, rgba(5, 8, 20, 0.6) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.05);
+            color: var(--color-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list strong {
+            color: var(--color-light);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 51, 102, 0.1) 100%);
+            border: 2px solid var(--color-primary);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .contact-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2.5rem;
+            color: var(--color-light);
+            margin-bottom: 1rem;
+        }
+
+        .contact-subtitle {
+            color: var(--color-gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            padding: 1rem 2rem;
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--color-primary);
+            border-radius: 8px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-link:hover {
+            background: var(--color-primary);
+            color: var(--color-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+            color: var(--color-gray);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-number {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🚀 AVAILABLE FOR HIRE 2026</div>
+            <h1 class="hero-title">NOHAYLA<br>EL HAIMED</h1>
+            <p class="hero-subtitle">
+                <span class="hero-highlight">Embedded Systems Engineer</span> | Test & Validation Specialist
+            </p>
+            <p class="hero-description">
+                Final-year engineering student specializing in electronics and digital systems. 
+                Passionate about robotics, AI, and automotive embedded systems. Currently transforming 
+                industrial test automation at Cordon CMS.
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">📧 Get In Touch</a>
+                <a href="assets/cv/Nohayla_ElHaimed_CV.pdf" class="btn btn-secondary" download>📄 Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-number">3+</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">905</span>
+                <span class="stat-label">TOEIC Score</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Tech Stacks</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">2026</span>
+                <span class="stat-label">Graduation Year</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="container">
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">Experience</h2>
+            </div>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Apprentice Engineer – Test & Validation</h3>
+                            <p class="experience-company">📍 Cordon CMS, Ribeauvillé, France</p>
+                        </div>
+                        <span class="experience-period">2023 – Present</span>
+                    </div>
+                    <ul class="experience-description">
+                        <li>Developed and automated electronic test benches for industrial, smart home, and medical applications</li>
+                        <li>Designed and validated PCBs using KiCad and LTSpice for mission-critical systems</li>
+                        <li>Programmed test automation in C#, C++, Python with LabVIEW and NI TestStand</li>
+                        <li>Integrated CAN bus protocols and performed hardware debugging with advanced measurement instruments</li>
+                        <li>Built industrial HMIs (C# WPF) and generic multi-client test infrastructures</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Engineering Intern – Autonomous Drone Development</h3>
+                            <p class="experience-company">📍 VTEC Lasers & Sensors, Netherlands</p>
+                        </div>
+                        <span class="experience-period">Summer 2025</span>
+                    </div>
+                    <ul class="experience-description">
+                        <li>Developed software for autonomous drone navigation and control systems</li>
+                        <li>Integrated multi-sensor systems: cameras, LiDAR, and ultrasonic sensors</li>
+                        <li>Implemented computer vision algorithms using YOLOv8 and ROS framework</li>
+                        <li>Conducted sensor data analysis and comprehensive system validation</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Private Tutor – STEM Education</h3>
+                            <p class="experience-company">📍 Independent Activity, France</p>
+                        </div>
+                        <span class="experience-period">2022 – 2024</span>
+                    </div>
+                    <ul class="experience-description">
+                        <li>Provided personalized tutoring in mathematics, physics, and engineering sciences</li>
+                        <li>Prepared students for competitive entrance examinations and national exams</li>
+                        <li>Developed strong pedagogical, communication, and organizational skills</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3 class="experience-title">Communication Assistant (Volunteer)</h3>
+                            <p class="experience-company">📍 Afev, Strasbourg, France</p>
+                        </div>
+                        <span class="experience-period">2022 – 2023</span>
+                    </div>
+                    <ul class="experience-description">
+                        <li>Supported educational and cultural initiatives promoting diversity</li>
+                        <li>Mentored young individuals to build confidence and learning enthusiasm</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Programming & Software</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">MATLAB/Simulink</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Visual Studio</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Test & Automation</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">LabVIEW</span>
+                        <span class="skill-tag">NI TestStand</span>
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">Picoscope</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Electronics Design</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">KiCad</span>
+                        <span class="skill-tag">LTSpice</span>
+                        <span class="skill-tag">PCB Design</span>
+                        <span class="skill-tag">Hardware Debugging</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Embedded & Protocols</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">CAN Bus</span>
+                        <span class="skill-tag">FPGA (Quartus)</span>
+                        <span class="skill-tag">VHDL</span>
+                        <span class="skill-tag">Microcontrollers</span>
+                        <span class="skill-tag">ROS 2</span>
+                        <span class="skill-tag">FreeRTOS</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">AI & Computer Vision</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">TensorFlow Lite</span>
+                        <span class="skill-tag">YOLOv8</span>
+                        <span class="skill-tag">OpenCV</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Other</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">SQL/NoSQL</span>
+                        <span class="skill-tag">Documentation</span>
+                        <span class="skill-tag">System Integration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="timeline-degree">Engineering Degree in Electronics and Digital Systems</h3>
+                    <p class="timeline-school">Télécom Physique Strasbourg, University of Strasbourg</p>
+                    <p class="timeline-period">2023 – 2026 (Apprenticeship Track)</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-degree">First Year of General Engineering Degree</h3>
+                    <p class="timeline-school">Télécom Physique Strasbourg</p>
+                    <p class="timeline-period">2022 – 2023</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-degree">Preparatory Class for Engineering Schools (TSI)</h3>
+                    <p class="timeline-school">Lycée Technique, Settat, Morocco</p>
+                    <p class="timeline-period">2020 – 2022</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-degree">Baccalaureate in Mechanical Science and Technology</h3>
+                    <p class="timeline-school">Imam Elghazali High School, Morocco</p>
+                    <p class="timeline-period">2019 – 2020 (With Highest Honors)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages & Interests -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Languages & Interests</h2>
+            </div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🌍 Languages</h3>
+                    <ul class="info-list">
+                        <li><strong>French</strong> <span>Native</span></li>
+                        <li><strong>Arabic</strong> <span>Native</span></li>
+                        <li><strong>English</strong> <span>Fluent (TOEIC 905)</span></li>
+                        <li><strong>German</strong> <span>Beginner</span></li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🎯 Interests</h3>
+                    <ul class="info-list">
+                        <li>🏀 Basketball</li>
+                        <li>🎯 Shooting Sports</li>
+                        <li>✈️ Travel & Cultural Discovery</li>
+                        <li>🤖 Robotics & Embedded Projects</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <h2 class="contact-title">Let's Work Together</h2>
+            <p class="contact-subtitle">
+                Seeking junior engineer positions in embedded systems, automotive electronics, or test automation.<br>
+                Open to opportunities in France, Germany, and internationally.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:nohayla.el-haimed@etu.unistra.fr" class="contact-link">
+                    📧 nohayla.el-haimed@etu.unistra.fr
+                </a>
+                <a href="tel:+33607236536" class="contact-link">
+                    📱 +33 6 07 23 65 36
+                </a>
+                <a href="https://www.linkedin.com/in/nohayla-engineer/" class="contact-link" target="_blank">
+                    💼 LinkedIn Profile
+                </a>
+                <a href="https://github.com/nohayla-elh?tab=repositories" class="contact-link" target="_blank">
+                    💻 GitHub Portfolio
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nohayla EL HAIMED. All rights reserved.</p>
+        <p>Designed with passion for embedded systems and innovation.</p>
+    </footer>
+
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .experience-card, .skill-category, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
 </html>
-
-
-
